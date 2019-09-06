@@ -3,19 +3,51 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10735DC51DB9B2F1A03A53FE /* Pods_BaiduFaceDetect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9D163B2621D2AC91344D24 /* Pods_BaiduFaceDetect.framework */; };
 		FD4991C723213B530002FC44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4991C623213B530002FC44 /* AppDelegate.swift */; };
 		FD4991C923213B530002FC44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4991C823213B530002FC44 /* ViewController.swift */; };
 		FD4991CC23213B530002FC44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4991CA23213B530002FC44 /* Main.storyboard */; };
 		FD4991CF23213B530002FC44 /* BaiduFaceDetect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD4991CD23213B530002FC44 /* BaiduFaceDetect.xcdatamodeld */; };
 		FD4991D123213B540002FC44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD4991D023213B540002FC44 /* Assets.xcassets */; };
 		FD4991D423213B540002FC44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4991D223213B540002FC44 /* LaunchScreen.storyboard */; };
+		FD4991EA23213D5C0002FC44 /* BFAccessTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4991E923213D5C0002FC44 /* BFAccessTokenModel.swift */; };
+		FD4991EC232142C10002FC44 /* BFBasicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4991EB232142C10002FC44 /* BFBasicModel.swift */; };
+		FD4991EE2321519B0002FC44 /* BFDetect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4991ED2321519B0002FC44 /* BFDetect.swift */; };
+		FD515D4F23229712000D8D11 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD515D4E23229712000D8D11 /* ImageExtension.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		FD4991E123213C050002FC44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD4991DB23213C050002FC44 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D797E9A5C5782CE845840781FA1CC81;
+			remoteInfo = Alamofire;
+		};
+		FD4991E323213C050002FC44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD4991DB23213C050002FC44 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9C014A59DBFC2BC91CD412B320DF3FC8;
+			remoteInfo = "Pods-BaiduFaceDetect";
+		};
+		FD4991E523213C050002FC44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD4991DB23213C050002FC44 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E23C076BA70925415F490FEDB215DA92;
+			remoteInfo = SwiftyJSON;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		5D9D163B2621D2AC91344D24 /* Pods_BaiduFaceDetect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaiduFaceDetect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61111E8E974355BE14FB40C6 /* Pods-BaiduFaceDetect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiduFaceDetect.release.xcconfig"; path = "Target Support Files/Pods-BaiduFaceDetect/Pods-BaiduFaceDetect.release.xcconfig"; sourceTree = "<group>"; };
+		BA2EDF05AFECD57A12930796 /* Pods-BaiduFaceDetect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiduFaceDetect.debug.xcconfig"; path = "Target Support Files/Pods-BaiduFaceDetect/Pods-BaiduFaceDetect.debug.xcconfig"; sourceTree = "<group>"; };
 		FD4991C323213B530002FC44 /* BaiduFaceDetect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiduFaceDetect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4991C623213B530002FC44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD4991C823213B530002FC44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +56,11 @@
 		FD4991D023213B540002FC44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FD4991D323213B540002FC44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FD4991D523213B540002FC44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD4991DB23213C050002FC44 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = SOURCE_ROOT; };
+		FD4991E923213D5C0002FC44 /* BFAccessTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFAccessTokenModel.swift; sourceTree = "<group>"; };
+		FD4991EB232142C10002FC44 /* BFBasicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFBasicModel.swift; sourceTree = "<group>"; };
+		FD4991ED2321519B0002FC44 /* BFDetect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFDetect.swift; sourceTree = "<group>"; };
+		FD515D4E23229712000D8D11 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +68,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10735DC51DB9B2F1A03A53FE /* Pods_BaiduFaceDetect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		60354928F60E1C93817090C3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BA2EDF05AFECD57A12930796 /* Pods-BaiduFaceDetect.debug.xcconfig */,
+				61111E8E974355BE14FB40C6 /* Pods-BaiduFaceDetect.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EF21F2B358B978D23FB19052 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D9D163B2621D2AC91344D24 /* Pods_BaiduFaceDetect.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FD4991BA23213B530002FC44 = {
 			isa = PBXGroup;
 			children = (
+				FD4991DB23213C050002FC44 /* Pods.xcodeproj */,
 				FD4991C523213B530002FC44 /* BaiduFaceDetect */,
 				FD4991C423213B530002FC44 /* Products */,
+				60354928F60E1C93817090C3 /* Pods */,
+				EF21F2B358B978D23FB19052 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +114,7 @@
 		FD4991C523213B530002FC44 /* BaiduFaceDetect */ = {
 			isa = PBXGroup;
 			children = (
+				FD4991E723213D1B0002FC44 /* Model */,
 				FD4991C623213B530002FC44 /* AppDelegate.swift */,
 				FD4991C823213B530002FC44 /* ViewController.swift */,
 				FD4991CA23213B530002FC44 /* Main.storyboard */,
@@ -63,8 +122,37 @@
 				FD4991D223213B540002FC44 /* LaunchScreen.storyboard */,
 				FD4991D523213B540002FC44 /* Info.plist */,
 				FD4991CD23213B530002FC44 /* BaiduFaceDetect.xcdatamodeld */,
+				FD515D4E23229712000D8D11 /* ImageExtension.swift */,
 			);
 			path = BaiduFaceDetect;
+			sourceTree = "<group>";
+		};
+		FD4991DC23213C050002FC44 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FD4991E223213C050002FC44 /* Alamofire.framework */,
+				FD4991E423213C050002FC44 /* Pods_BaiduFaceDetect.framework */,
+				FD4991E623213C050002FC44 /* SwiftyJSON.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FD4991E723213D1B0002FC44 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FD4991E823213D2E0002FC44 /* AccessToken */,
+				FD4991EB232142C10002FC44 /* BFBasicModel.swift */,
+				FD4991ED2321519B0002FC44 /* BFDetect.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FD4991E823213D2E0002FC44 /* AccessToken */ = {
+			isa = PBXGroup;
+			children = (
+				FD4991E923213D5C0002FC44 /* BFAccessTokenModel.swift */,
+			);
+			path = AccessToken;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +162,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FD4991D823213B540002FC44 /* Build configuration list for PBXNativeTarget "BaiduFaceDetect" */;
 			buildPhases = (
+				2F914D22B4E5F8C2735A3DE6 /* [CP] Check Pods Manifest.lock */,
 				FD4991BF23213B530002FC44 /* Sources */,
 				FD4991C023213B530002FC44 /* Frameworks */,
 				FD4991C123213B530002FC44 /* Resources */,
+				3C3964EFDF46752115A6E48C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -113,12 +203,42 @@
 			mainGroup = FD4991BA23213B530002FC44;
 			productRefGroup = FD4991C423213B530002FC44 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = FD4991DC23213C050002FC44 /* Products */;
+					ProjectRef = FD4991DB23213C050002FC44 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				FD4991C223213B530002FC44 /* BaiduFaceDetect */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		FD4991E223213C050002FC44 /* Alamofire.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Alamofire.framework;
+			remoteRef = FD4991E123213C050002FC44 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FD4991E423213C050002FC44 /* Pods_BaiduFaceDetect.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Pods_BaiduFaceDetect.framework;
+			remoteRef = FD4991E323213C050002FC44 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FD4991E623213C050002FC44 /* SwiftyJSON.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SwiftyJSON.framework;
+			remoteRef = FD4991E523213C050002FC44 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		FD4991C123213B530002FC44 /* Resources */ = {
@@ -133,14 +253,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2F914D22B4E5F8C2735A3DE6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BaiduFaceDetect-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3C3964EFDF46752115A6E48C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BaiduFaceDetect/Pods-BaiduFaceDetect-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BaiduFaceDetect/Pods-BaiduFaceDetect-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BaiduFaceDetect/Pods-BaiduFaceDetect-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		FD4991BF23213B530002FC44 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				FD4991C923213B530002FC44 /* ViewController.swift in Sources */,
+				FD4991EC232142C10002FC44 /* BFBasicModel.swift in Sources */,
+				FD4991EE2321519B0002FC44 /* BFDetect.swift in Sources */,
+				FD515D4F23229712000D8D11 /* ImageExtension.swift in Sources */,
 				FD4991CF23213B530002FC44 /* BaiduFaceDetect.xcdatamodeld in Sources */,
 				FD4991C723213B530002FC44 /* AppDelegate.swift in Sources */,
+				FD4991EA23213D5C0002FC44 /* BFAccessTokenModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +450,7 @@
 		};
 		FD4991D923213B540002FC44 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA2EDF05AFECD57A12930796 /* Pods-BaiduFaceDetect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -301,6 +468,7 @@
 		};
 		FD4991DA23213B540002FC44 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61111E8E974355BE14FB40C6 /* Pods-BaiduFaceDetect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
