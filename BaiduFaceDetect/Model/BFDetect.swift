@@ -14,9 +14,21 @@ protocol BFDetectDelete {
 }
 
 class BFDetect: NSObject {
-    let originImage : UIImage
-    var scaleImage: UIImage?
+    var image: ImageScaleTool!
     var detectedResultJson: JSON?
+    private var isScaled = true
+    typealias FaceInfo = (faceIndex: Int,
+        faceToken: String,
+        faceBeauty: Double,
+        faceAge: Int,
+        faceIsMan: Bool,
+        faceAllInfo: JSON,
+        faceOriginLocation: CGRect,
+        faceImage: UIImage
+    
+    )
+
+
     
     
     //外部数据接口
@@ -46,6 +58,7 @@ class BFDetect: NSObject {
             }
         }
     }
+    //获取上传文件返回数据
     var faceList:[JSON]{
         get{
             if let json = detectedResultJson
@@ -59,7 +72,7 @@ class BFDetect: NSObject {
             }
         }
     }
-    func faccToken(at index: Int) -> String{
+    func faceToken(at index: Int) -> String{
         if index >= faceList.count{
             return ""
         }else{
@@ -87,6 +100,7 @@ class BFDetect: NSObject {
             return faceList[index]["gender"]["type"].stringValue == "male" ? true : false
         }
     }
+    //获得上传压缩文件定位
     func location(at index: Int) -> CGRect{
         if index >= faceList.count{
             return CGRect(x: 0, y: 0, width: 0, height: 0)
@@ -96,9 +110,11 @@ class BFDetect: NSObject {
                               y: CGFloat(loc["top"].doubleValue),
                               width: CGFloat(loc["width"].doubleValue),
                               height: CGFloat(loc["height"].doubleValue))
+            
            return rect
         }
     }
+    //获得传入类中原图文件的脸部定位信息
     func locationForOriginImage(at index: Int) -> CGRect{
         if index >= faceList.count{
             return CGRect(x: 0, y: 0, width: 0, height: 0)
@@ -109,9 +125,44 @@ class BFDetect: NSObject {
 //                              width: CGFloat(loc["width"].doubleValue),
 //                              height: CGFloat(loc["height"].doubleValue))
             let rect = CGRect(x: loc["left"].doubleValue, y: loc["top"].doubleValue, width: loc["width"].doubleValue, height: loc["height"].doubleValue)
-           
-            return scaleImage!.transletFromSelfRectToOriginRect(byOriginSize: originImage.size, fromRect: rect)
+           return self.image.getRectFromTargetRect(targetRect: rect)
             
+        }
+    }
+    
+    //获取某一点脸的相关信息，POINT应为传入类中原图的定位点
+    func getFaceInformationForOriginImagePoint( at originPoint: CGPoint) -> FaceInfo?
+    {
+        let index = getFaceIndexForOriginImagePoint(at: originPoint)
+        if let i = index{
+            let info : FaceInfo
+            info.faceAge = age(at: i)
+            info.faceAllInfo = faceList[i]
+            info.faceBeauty = beauty(at: i)
+            info.faceIndex = i
+            info.faceIsMan = isMan(at: i)
+            info.faceToken = self.faceToken(at: i)
+            info.faceOriginLocation = locationForOriginImage(at: i)
+            info.faceImage = image.originImage.clipImage(by: locationForOriginImage(at: i)) ?? UIImage()
+            return info
+        }else{
+            return nil
+        }
+    }
+    func getFaceIndexForOriginImagePoint(at originPoint: CGPoint) -> Int?{
+        if detectedSuccess{
+            let targetPoint = originPoint.applying(self.image.transformOrigin2Target)
+            for index in 0 ..< faceNumber{
+                let rect = location(at: index)
+                if rect.contains(targetPoint){
+                    return index
+                }else{
+                    continue
+                }
+            }
+            return nil
+        }else{
+            return nil
         }
     }
     
@@ -122,11 +173,11 @@ class BFDetect: NSObject {
     
     
     init(by image: UIImage,delegate : BFDetectDelete) {
-        self.originImage = image
+        self.image = ImageScaleTool(originImage: image)
         self.delegate = delegate
         para = Parameters()
         detectedResultJson = nil
-        scaleImage = nil
+        
         super.init()
         //self.image = image
         
@@ -137,13 +188,14 @@ class BFDetect: NSObject {
             
             var uploadData : String
             if imageData.count > BFBasicModel.UploadDataSizeLimit{
-                let scaleImageSize = CGSize(width: 400, height: 400)
-                let rtD = UIImage.scaleImage(image: image, newSize: scaleImageSize)
-                scaleImage = rtD.newImage
-                uploadData = (scaleImage!.pngData()?.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters))!
+                let scale : CGFloat = CGFloat(BFBasicModel.UploadDataSizeLimit / imageData.count)
+                self.image.setScaleRatio(scaleX: scale, y: scale)
+                uploadData = (self.image.targetImage.pngData()?.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters))!
+                isScaled = true
             }else{
-                scaleImage = image
-                uploadData = (scaleImage!.pngData()?.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters))!
+                
+                uploadData = (self.image.originImage.pngData()?.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters))!
+                isScaled = false
             }
             para  = [
                 "image": uploadData,
