@@ -17,7 +17,7 @@ class BFDetect: NSObject {
     var image: ImageScaleTool!
     var detectedResultJson: JSON?
     private var isScaled = true
-    typealias FaceInfo = (faceIndex: Int,
+    typealias FaceDetedtInfo = (faceIndex: Int,
         faceToken: String,
         faceBeauty: Double,
         faceAge: Int,
@@ -131,11 +131,11 @@ class BFDetect: NSObject {
     }
     
     //获取某一点脸的相关信息，POINT应为传入类中原图的定位点
-    func getFaceInformationForOriginImagePoint( at originPoint: CGPoint) -> FaceInfo?
+    func getFaceInformationForOriginImagePoint( at originPoint: CGPoint) -> FaceDetedtInfo?
     {
         let index = getFaceIndexForOriginImagePoint(at: originPoint)
         if let i = index{
-            let info : FaceInfo
+            let info : FaceDetedtInfo
             info.faceAge = age(at: i)
             info.faceAllInfo = faceList[i]
             info.faceBeauty = beauty(at: i)
@@ -188,7 +188,7 @@ class BFDetect: NSObject {
             
             var uploadData : String
             if imageData.count > BFBasicModel.UploadDataSizeLimit{
-                let scale : CGFloat = CGFloat(BFBasicModel.UploadDataSizeLimit / imageData.count)
+                let scale : CGFloat = CGFloat(BFBasicModel.UploadDataSizeLimit) / CGFloat(imageData.count)
                 self.image.setScaleRatio(scaleX: scale, y: scale)
                 uploadData = (self.image.targetImage.pngData()?.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters))!
                 isScaled = true
