@@ -57,6 +57,8 @@ extension UIImageView{
             break
         case .bottomRight:
             break
+        @unknown default:
+            break;
         }
         
         return newRect
