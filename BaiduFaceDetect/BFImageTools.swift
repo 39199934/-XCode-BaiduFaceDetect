@@ -39,6 +39,17 @@ class BFImageTools: NSObject {
         self.imageUrl = nil
         self.imageFaceToken = nil
         self.imageTypeBySelf = imageType
+        self.imageScaled = nil
+        
+        switch self.imageTypeBySelf! {
+        case .BASE64(let image):
+            self.imageScaled = ImageScaleToolForBaiduFace(originImage: image)
+        case .URL(let url):
+            self.imageUrl = url
+        case .FACE_TOKEN(let token):
+            self.imageFaceToken = token
+            
+        }
         super.init()
     }
     

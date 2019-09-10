@@ -83,8 +83,7 @@ class BFUserSet: NSObject {
                 urlForAppend = "/group/delete"
             case .getlistGoup:
                 urlForAppend = "/group/getlist"
-            @unknown default:
-                <#code#>
+            
             }
             let url = BFBasicModel.UserSetOriginUrl + urlForAppend
             return (UIApplication.shared.delegate as! AppDelegate).accessTokenModel.generationUrl(oriUrl: url)!
