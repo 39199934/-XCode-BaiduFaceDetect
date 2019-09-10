@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		10735DC51DB9B2F1A03A53FE /* Pods_BaiduFaceDetect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9D163B2621D2AC91344D24 /* Pods_BaiduFaceDetect.framework */; };
 		FD4991C723213B530002FC44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4991C623213B530002FC44 /* AppDelegate.swift */; };
-		FD4991C923213B530002FC44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4991C823213B530002FC44 /* ViewController.swift */; };
+		FD4991C923213B530002FC44 /* BFDetectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4991C823213B530002FC44 /* BFDetectViewController.swift */; };
 		FD4991CC23213B530002FC44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4991CA23213B530002FC44 /* Main.storyboard */; };
 		FD4991CF23213B530002FC44 /* BaiduFaceDetect.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD4991CD23213B530002FC44 /* BaiduFaceDetect.xcdatamodeld */; };
 		FD4991D123213B540002FC44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD4991D023213B540002FC44 /* Assets.xcassets */; };
@@ -18,6 +18,10 @@
 		FD4991EC232142C10002FC44 /* BFBasicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4991EB232142C10002FC44 /* BFBasicModel.swift */; };
 		FD4991EE2321519B0002FC44 /* BFDetect.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4991ED2321519B0002FC44 /* BFDetect.swift */; };
 		FD515D4F23229712000D8D11 /* ImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD515D4E23229712000D8D11 /* ImageExtension.swift */; };
+		FD515D562323DBB1000D8D11 /* ImageScaleTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD515D552323DBB1000D8D11 /* ImageScaleTool.swift */; };
+		FD515D592324D60E000D8D11 /* BFMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD515D582324D60E000D8D11 /* BFMatch.swift */; };
+		FD515D5B2324E1E0000D8D11 /* ImageScaleToolForBaiduFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD515D5A2324E1E0000D8D11 /* ImageScaleToolForBaiduFace.swift */; };
+		FD515D5E23253CB6000D8D11 /* BFMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD515D5D23253CB6000D8D11 /* BFMatchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +54,7 @@
 		BA2EDF05AFECD57A12930796 /* Pods-BaiduFaceDetect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiduFaceDetect.debug.xcconfig"; path = "Target Support Files/Pods-BaiduFaceDetect/Pods-BaiduFaceDetect.debug.xcconfig"; sourceTree = "<group>"; };
 		FD4991C323213B530002FC44 /* BaiduFaceDetect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiduFaceDetect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4991C623213B530002FC44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FD4991C823213B530002FC44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FD4991C823213B530002FC44 /* BFDetectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFDetectViewController.swift; sourceTree = "<group>"; };
 		FD4991CB23213B530002FC44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FD4991CE23213B530002FC44 /* BaiduFaceDetect.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BaiduFaceDetect.xcdatamodel; sourceTree = "<group>"; };
 		FD4991D023213B540002FC44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +65,10 @@
 		FD4991EB232142C10002FC44 /* BFBasicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFBasicModel.swift; sourceTree = "<group>"; };
 		FD4991ED2321519B0002FC44 /* BFDetect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFDetect.swift; sourceTree = "<group>"; };
 		FD515D4E23229712000D8D11 /* ImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageExtension.swift; sourceTree = "<group>"; };
+		FD515D552323DBB1000D8D11 /* ImageScaleTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageScaleTool.swift; sourceTree = "<group>"; };
+		FD515D582324D60E000D8D11 /* BFMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFMatch.swift; sourceTree = "<group>"; };
+		FD515D5A2324E1E0000D8D11 /* ImageScaleToolForBaiduFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScaleToolForBaiduFace.swift; sourceTree = "<group>"; };
+		FD515D5D23253CB6000D8D11 /* BFMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFMatchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,15 +122,17 @@
 		FD4991C523213B530002FC44 /* BaiduFaceDetect */ = {
 			isa = PBXGroup;
 			children = (
+				FD515D5723249B00000D8D11 /* VIEWCONTROLLER */,
 				FD4991E723213D1B0002FC44 /* Model */,
 				FD4991C623213B530002FC44 /* AppDelegate.swift */,
-				FD4991C823213B530002FC44 /* ViewController.swift */,
 				FD4991CA23213B530002FC44 /* Main.storyboard */,
 				FD4991D023213B540002FC44 /* Assets.xcassets */,
 				FD4991D223213B540002FC44 /* LaunchScreen.storyboard */,
 				FD4991D523213B540002FC44 /* Info.plist */,
 				FD4991CD23213B530002FC44 /* BaiduFaceDetect.xcdatamodeld */,
 				FD515D4E23229712000D8D11 /* ImageExtension.swift */,
+				FD515D552323DBB1000D8D11 /* ImageScaleTool.swift */,
+				FD515D5A2324E1E0000D8D11 /* ImageScaleToolForBaiduFace.swift */,
 			);
 			path = BaiduFaceDetect;
 			sourceTree = "<group>";
@@ -142,6 +152,7 @@
 			children = (
 				FD4991E823213D2E0002FC44 /* AccessToken */,
 				FD4991EB232142C10002FC44 /* BFBasicModel.swift */,
+				FD515D582324D60E000D8D11 /* BFMatch.swift */,
 				FD4991ED2321519B0002FC44 /* BFDetect.swift */,
 			);
 			path = Model;
@@ -153,6 +164,15 @@
 				FD4991E923213D5C0002FC44 /* BFAccessTokenModel.swift */,
 			);
 			path = AccessToken;
+			sourceTree = "<group>";
+		};
+		FD515D5723249B00000D8D11 /* VIEWCONTROLLER */ = {
+			isa = PBXGroup;
+			children = (
+				FD4991C823213B530002FC44 /* BFDetectViewController.swift */,
+				FD515D5D23253CB6000D8D11 /* BFMatchViewController.swift */,
+			);
+			path = VIEWCONTROLLER;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -300,12 +320,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FD4991C923213B530002FC44 /* ViewController.swift in Sources */,
+				FD4991C923213B530002FC44 /* BFDetectViewController.swift in Sources */,
+				FD515D5E23253CB6000D8D11 /* BFMatchViewController.swift in Sources */,
 				FD4991EC232142C10002FC44 /* BFBasicModel.swift in Sources */,
+				FD515D592324D60E000D8D11 /* BFMatch.swift in Sources */,
 				FD4991EE2321519B0002FC44 /* BFDetect.swift in Sources */,
 				FD515D4F23229712000D8D11 /* ImageExtension.swift in Sources */,
 				FD4991CF23213B530002FC44 /* BaiduFaceDetect.xcdatamodeld in Sources */,
+				FD515D5B2324E1E0000D8D11 /* ImageScaleToolForBaiduFace.swift in Sources */,
 				FD4991C723213B530002FC44 /* AppDelegate.swift in Sources */,
+				FD515D562323DBB1000D8D11 /* ImageScaleTool.swift in Sources */,
 				FD4991EA23213D5C0002FC44 /* BFAccessTokenModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,12 +478,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PHWH78T44A;
 				INFOPLIST_FILE = BaiduFaceDetect/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = rolodestar.com.BaiduFaceDetect;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rolodestar.BaiduFaceDetect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -472,12 +497,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PHWH78T44A;
 				INFOPLIST_FILE = BaiduFaceDetect/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = rolodestar.com.BaiduFaceDetect;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rolodestar.BaiduFaceDetect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

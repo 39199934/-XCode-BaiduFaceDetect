@@ -17,6 +17,15 @@ class BFAccessTokenModel: NSObject {
     
     public var isFinished: Bool = false
     
+    public func generationUrl(oriUrl: String) -> String?
+    {
+        if !isFinished{
+            return  nil
+        }
+        let str = oriUrl + "?access_token=" + AccessToken
+        return str
+    }
+    
     public  var AccessToken:String{
         get{
             if let json = jsonResult{

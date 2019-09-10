@@ -14,7 +14,7 @@ protocol BFDetectDelete {
 }
 
 class BFDetect: NSObject {
-    var image: ImageScaleTool!
+    var image: ImageScaleToolForBaiduFace!
     var detectedResultJson: JSON?
     private var isScaled = true
     typealias FaceDetedtInfo = (faceIndex: Int,
@@ -37,6 +37,9 @@ class BFDetect: NSObject {
         get{
             if let json = detectedResultJson
             {
+                if !json.exists(){
+                    return false
+                }
                 if json["error_code"].intValue == 0{
                     return true
                 } else{
@@ -52,7 +55,7 @@ class BFDetect: NSObject {
         get{
             if let json = detectedResultJson
             {
-                return  json["face_num"].intValue
+                return  json["result"]["face_num"].intValue
             }else{
                 return 0
             }
@@ -63,7 +66,7 @@ class BFDetect: NSObject {
         get{
             if let json = detectedResultJson
             {
-                return  json["face_list"].arrayValue
+                return  json["result"]["face_list"].arrayValue
                 
                 
             }else{
@@ -173,7 +176,7 @@ class BFDetect: NSObject {
     
     
     init(by image: UIImage,delegate : BFDetectDelete) {
-        self.image = ImageScaleTool(originImage: image)
+        self.image = ImageScaleToolForBaiduFace(originImage: image)
         self.delegate = delegate
         para = Parameters()
         detectedResultJson = nil
@@ -183,35 +186,25 @@ class BFDetect: NSObject {
         
         
         
-        if let imageData = image.pngData()
-        {
+        
+        
+        var uploadData : String
+        uploadData = self.image.getTargetImageBase64()
+        para  = [
+            "image": uploadData,
+            "image_type": "BASE64",
+            "face_field":  "age,beauty,expression,face_shape,gender,glasses,landmark,landmark150,race,quality,eye_status,emotion,face_type",
+            "max_face_num": 10
             
-            var uploadData : String
-            if imageData.count > BFBasicModel.UploadDataSizeLimit{
-                let scale : CGFloat = CGFloat(BFBasicModel.UploadDataSizeLimit) / CGFloat(imageData.count)
-                self.image.setScaleRatio(scaleX: scale, y: scale)
-                uploadData = (self.image.targetImage.pngData()?.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters))!
-                isScaled = true
-            }else{
-                
-                uploadData = (self.image.originImage.pngData()?.base64EncodedString(options: Data.Base64EncodingOptions.lineLength64Characters))!
-                isScaled = false
-            }
-            para  = [
-                "image": uploadData,
-                "image_type": "BASE64",
-                "face_field":  "age,beauty,expression,face_shape,gender,glasses,landmark,landmark150,race,quality,eye_status,emotion,face_type",
-                "max_face_num": 10
-                
-                
-            ]
-            if(access.isFinished){
+            
+        ]
+        if(access.isFinished){
             urlStr += access.AccessToken
-            }else{
-                return
-            }
-            
+        }else{
+            return
         }
+            
+        
         
         detectRequest()
         
@@ -220,12 +213,14 @@ class BFDetect: NSObject {
     private func detectRequest(){
         AF.request(urlStr, method: .post, parameters: para, headers: header).responseJSON { (response) in
             if let value = response.value{
-                self.detectedResultJson = JSON(value)["result"]
+                self.detectedResultJson = JSON(value)//["result"]
                 debugPrint(self.detectedResultJson)
                 if  self.detectedResultJson != nil {
                     self.delegate?.BFDetectFinished(detectResult: self)
                     //detectedSuccess = true
                 }
+            }else{
+                let erro = response.error.debugDescription
             }
         }
     }

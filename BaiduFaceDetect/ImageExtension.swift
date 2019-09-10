@@ -9,14 +9,16 @@
 import Foundation
 import AVFoundation
 import UIKit
+import CoreGraphics
 
 extension UIImageView{
     //在VIEW上画方框，采用VIEW的绝对座标
-    private func drawLayerOnImageView(at rect: CGRect,color :UIColor = UIColor.red){
+    private func drawLayerOnImageView(at rect: CGRect,color :UIColor = UIColor.red,boderWidth : CGFloat = 1){
         let drawL = CALayer()
-        drawL.borderWidth = 5
+        drawL.borderWidth = boderWidth
         drawL.borderColor = color.cgColor
         drawL.frame = rect
+        //drawL.transform = CGAffineTransform(rotationAngle:  -19)
         self.layer.addSublayer(drawL)
     }
     //获取图片在VIEW中的FRAME 位置
@@ -61,46 +63,88 @@ extension UIImageView{
     }
     
     //获取显示时图片压缩比，建议仅用于等比例压缩  本图大小 / 显示大小 = 比例
-    func getImageRatio() -> CGFloat{
+    func getImageRatio() -> (widthRation:CGFloat,heightRation: CGFloat){
         if image == nil{
-            return 0.0
+            return (0.0,0.0)
         }
         switch contentMode {
         case .scaleAspectFit:
             let rect = getImageFrame()
-            let ratio = (self.image?.size.width)! / rect.width
-            return ratio
+            let ratioW = (self.image?.size.width)! / rect.width
+            let ratioH = (self.image?.size.height)! / rect.height
+            return (ratioW,ratioH)
         case .center:
             let rect = getImageFrame()
-            let ratio = (self.image?.size.width)! / rect.width
-            return ratio
+            let ratioW = (self.image?.size.width)! / rect.width
+            let ratioH = (self.image?.size.height)! / rect.height
+            return (ratioW,ratioH)
         default:
             let rect = getImageFrame()
-            let ratio = (self.image?.size.width)! / rect.width
-            return ratio
+            let ratioW = (self.image?.size.width)! / rect.width
+            let ratioH = (self.image?.size.height)! / rect.height
+            return (ratioW,ratioH)
         }
         
     }
     
     
     //通过原图的RECT画到VIEW 上缩放的RECT
-    func drawLayerByOriginImageRect(at originRect: CGRect,color :UIColor = UIColor.red){
+//    func drawLayerByOriginImageRect(at originRect: CGRect,color :UIColor = UIColor.red){
+//        let targetRect = getRectOnView(by: originRect)
+//        drawLayerOnImageView(at: targetRect,)
+//        
+//    }
+    func drawLayerByOriginImageRect(at originRect: CGRect,color :UIColor = UIColor.red,boderWidth: CGFloat = 2){
+        let targetRect = getRectOnImage(by: originRect)
+        drawLayerOnImageView(at: targetRect,color: color,boderWidth: boderWidth)
+        
+    }
+    //通过原图座标，获得在Image上的RECT
+    func getRectOnImage(by originRect: CGRect) ->CGRect{
+        var rtRect: CGRect
         switch self.contentMode {
         case .scaleAspectFit:
-            //let newRect = AVMakeRect(aspectRatio: rect.size, insideRect: getAspectFitFrame())
-            let imageRect = getImageFrame()
-            let imageRatio = getImageRatio()
-            let drawRect = CGRect(x: imageRect.minX + originRect.minX, y: imageRect.minY + originRect.minY, width: originRect.width / imageRatio, height: originRect.height / imageRatio)
-            drawLayerOnImageView(at: drawRect,color:  color)
-        case .center:
-            let imageRect = getImageFrame()
-            
-            let drawRect = CGRect(x: imageRect.minX + originRect.minX, y: imageRect.minY + originRect.minY, width: originRect.width ,height: originRect.height )
-            drawLayerOnImageView(at: drawRect,color:  color)
+            let frame = getImageFrame()
+            let ratio = getImageRatio()
+            rtRect = CGRect(x: frame.minX + originRect.minX / ratio.widthRation, y: frame.minY + originRect.minY / ratio.heightRation, width: originRect.width / ratio.widthRation , height: originRect.height / ratio.heightRation)
+            return rtRect
         default:
             break
         }
-        
+        return CGRect()
+    }
+    
+    //通过IMAGEVIEW上的点，转换为在显示出来IMAGE上的点,該坐标位置为显示出来image的座标位置
+    func getPointOnTargetImage(byViewPoint viewPoint: CGPoint) ->CGPoint?{
+        switch self.contentMode {
+        case .scaleAspectFit:
+            let frame = getImageFrame()
+            if frame.contains(viewPoint){
+                let ratio = getImageRatio()
+                let rtPoint = CGPoint(x:  viewPoint.x  - frame.minX , y:  viewPoint.y - frame.minY)
+                return rtPoint
+            }else{
+                return nil
+            }
+        default:
+            break
+        }
+        return nil
+    }
+    
+    //通过显示图坐标，获得原图坐标
+    func getPointOnOriginImage(byTargetPoint : CGPoint) ->CGPoint{
+        let ratio = getImageRatio()
+        let rtPoint = CGPoint(x: byTargetPoint.x * ratio.widthRation, y: byTargetPoint.y * ratio.heightRation)
+        return rtPoint
+    }
+    //通过VIEW座标，找出原图坐标
+    func getPointOnOriginImage(byViewPoint: CGPoint) -> CGPoint?{
+        if let targetPoint = getPointOnTargetImage(byViewPoint: byViewPoint){
+            return getPointOnOriginImage(byTargetPoint: targetPoint)
+        }else{
+            return nil
+        }
     }
 }
 
@@ -133,5 +177,16 @@ extension UIImage {
         return originRect
     }
     
+    //从图中切下一块区域内的图片
+    func clipImage(by rect: CGRect) -> UIImage?{
+        let sourceImageRef: CGImage = self.cgImage!
+        if let newCGImage = sourceImageRef.cropping(to: rect)
+        {
+            let newImage = UIImage.init(cgImage: newCGImage )
+            return newImage
+        }else{
+            return nil
+        }
+    }
 }
 
