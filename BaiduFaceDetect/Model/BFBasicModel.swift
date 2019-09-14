@@ -14,6 +14,7 @@ class BFBasicModel: NSObject {
     static let DetectUrl = "https://aip.baidubce.com/rest/2.0/face/v3/detect"
     static let MatchUrl = "https://aip.baidubce.com/rest/2.0/face/v3/match"
     static let UserSetOriginUrl = "https://aip.baidubce.com/rest/2.0/face/v3/faceset"
+    static let SearchUrl = "https://aip.baidubce.com/rest/2.0/face/v3/search"
     static let UploadDataSizeLimit = 1024 * 1024  * 2 //1024 * 1024 * 2
 
     

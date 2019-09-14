@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Foundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,8 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var accessTokenModel = BFAccessTokenModel.Default
 
 
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+         let _ = accessTokenModel
+        return true
+    }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+       
+        //NSThread.
+        //Thread.sleep(forTimeInterval: 3)
         return true
     }
 

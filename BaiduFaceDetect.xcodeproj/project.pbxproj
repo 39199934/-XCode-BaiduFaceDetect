@@ -11,6 +11,8 @@
 		FD275C302327A4CB00990C74 /* BFImageTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD275C2F2327A4CB00990C74 /* BFImageTools.swift */; };
 		FD275C352327B4A000990C74 /* BFUserSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD275C342327B4A000990C74 /* BFUserSet.swift */; };
 		FD275C372328019400990C74 /* BFUserSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD275C362328019400990C74 /* BFUserSetViewController.swift */; };
+		FD275C392328A8E400990C74 /* firstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD275C382328A8E400990C74 /* firstViewController.swift */; };
+		FD275C3D2328E37F00990C74 /* BFUserSetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD275C3C2328E37F00990C74 /* BFUserSetModel.swift */; };
 		FD4991C723213B530002FC44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4991C623213B530002FC44 /* AppDelegate.swift */; };
 		FD4991C923213B530002FC44 /* BFDetectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD4991C823213B530002FC44 /* BFDetectViewController.swift */; };
 		FD4991CC23213B530002FC44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4991CA23213B530002FC44 /* Main.storyboard */; };
@@ -25,6 +27,8 @@
 		FD515D592324D60E000D8D11 /* BFMatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD515D582324D60E000D8D11 /* BFMatch.swift */; };
 		FD515D5B2324E1E0000D8D11 /* ImageScaleToolForBaiduFace.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD515D5A2324E1E0000D8D11 /* ImageScaleToolForBaiduFace.swift */; };
 		FD515D5E23253CB6000D8D11 /* BFMatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD515D5D23253CB6000D8D11 /* BFMatchViewController.swift */; };
+		FD582739232CE163004CE9AC /* BFSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD582738232CE163004CE9AC /* BFSearch.swift */; };
+		FD58273E232CE9B6004CE9AC /* BFSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD58273D232CE9B6004CE9AC /* BFSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +62,8 @@
 		FD275C2F2327A4CB00990C74 /* BFImageTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFImageTools.swift; sourceTree = "<group>"; };
 		FD275C342327B4A000990C74 /* BFUserSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFUserSet.swift; sourceTree = "<group>"; };
 		FD275C362328019400990C74 /* BFUserSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFUserSetViewController.swift; sourceTree = "<group>"; };
+		FD275C382328A8E400990C74 /* firstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstViewController.swift; sourceTree = "<group>"; };
+		FD275C3C2328E37F00990C74 /* BFUserSetModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFUserSetModel.swift; sourceTree = "<group>"; };
 		FD4991C323213B530002FC44 /* BaiduFaceDetect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiduFaceDetect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD4991C623213B530002FC44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FD4991C823213B530002FC44 /* BFDetectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFDetectViewController.swift; sourceTree = "<group>"; };
@@ -75,6 +81,8 @@
 		FD515D582324D60E000D8D11 /* BFMatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFMatch.swift; sourceTree = "<group>"; };
 		FD515D5A2324E1E0000D8D11 /* ImageScaleToolForBaiduFace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScaleToolForBaiduFace.swift; sourceTree = "<group>"; };
 		FD515D5D23253CB6000D8D11 /* BFMatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFMatchViewController.swift; sourceTree = "<group>"; };
+		FD582738232CE163004CE9AC /* BFSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFSearch.swift; sourceTree = "<group>"; };
+		FD58273D232CE9B6004CE9AC /* BFSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BFSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +170,8 @@
 				FD515D582324D60E000D8D11 /* BFMatch.swift */,
 				FD4991ED2321519B0002FC44 /* BFDetect.swift */,
 				FD275C342327B4A000990C74 /* BFUserSet.swift */,
+				FD582738232CE163004CE9AC /* BFSearch.swift */,
+				FD275C3C2328E37F00990C74 /* BFUserSetModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -177,9 +187,11 @@
 		FD515D5723249B00000D8D11 /* VIEWCONTROLLER */ = {
 			isa = PBXGroup;
 			children = (
+				FD275C382328A8E400990C74 /* firstViewController.swift */,
 				FD4991C823213B530002FC44 /* BFDetectViewController.swift */,
 				FD515D5D23253CB6000D8D11 /* BFMatchViewController.swift */,
 				FD275C362328019400990C74 /* BFUserSetViewController.swift */,
+				FD58273D232CE9B6004CE9AC /* BFSearchViewController.swift */,
 			);
 			path = VIEWCONTROLLER;
 			sourceTree = "<group>";
@@ -332,6 +344,8 @@
 				FD4991C923213B530002FC44 /* BFDetectViewController.swift in Sources */,
 				FD515D5E23253CB6000D8D11 /* BFMatchViewController.swift in Sources */,
 				FD4991EC232142C10002FC44 /* BFBasicModel.swift in Sources */,
+				FD275C3D2328E37F00990C74 /* BFUserSetModel.swift in Sources */,
+				FD58273E232CE9B6004CE9AC /* BFSearchViewController.swift in Sources */,
 				FD515D592324D60E000D8D11 /* BFMatch.swift in Sources */,
 				FD4991EE2321519B0002FC44 /* BFDetect.swift in Sources */,
 				FD275C302327A4CB00990C74 /* BFImageTools.swift in Sources */,
@@ -340,8 +354,10 @@
 				FD275C352327B4A000990C74 /* BFUserSet.swift in Sources */,
 				FD4991CF23213B530002FC44 /* BaiduFaceDetect.xcdatamodeld in Sources */,
 				FD515D5B2324E1E0000D8D11 /* ImageScaleToolForBaiduFace.swift in Sources */,
+				FD275C392328A8E400990C74 /* firstViewController.swift in Sources */,
 				FD4991C723213B530002FC44 /* AppDelegate.swift in Sources */,
 				FD515D562323DBB1000D8D11 /* ImageScaleTool.swift in Sources */,
+				FD582739232CE163004CE9AC /* BFSearch.swift in Sources */,
 				FD4991EA23213D5C0002FC44 /* BFAccessTokenModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

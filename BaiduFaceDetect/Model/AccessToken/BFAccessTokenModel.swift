@@ -12,10 +12,17 @@ import SwiftyJSON
 
 class BFAccessTokenModel: NSObject {
     
-    
+   
     public static var Default : BFAccessTokenModel = BFAccessTokenModel()
     
-    public var isFinished: Bool = false
+    public var isFinished: Bool {
+        get{
+            guard let rt = self.jsonResult?.exists() else {
+                return false
+            }
+            return rt
+        }
+    }
     
     public func generationUrl(oriUrl: String) -> String?
     {
@@ -53,15 +60,15 @@ class BFAccessTokenModel: NSObject {
             if let data = resp.value{
                 
                     self.jsonResult = JSON(data)
-                if (self.jsonResult?.exists())!{
-                    self.isFinished = true
+                
                     //debugPrint(self.jsonResult)
                 }else{
                     self.jsonResult = nil
-                    self.isFinished = false
+                
                 }
             }
-            })
+            )
+        Thread.sleep(forTimeInterval: 3)
     }
 
 }
